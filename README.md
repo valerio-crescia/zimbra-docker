@@ -65,8 +65,9 @@ The Script will take care of everything and after a few minutes you can go to th
  * Web Client - https://YOURIP
  * Admin Console - https://YOURIP:7071
  
-##Next steps
-The script still needs some work on the next:
- * Prepare and configure automatically the Reverse DNS Zone
- * Make it multi-platform to use it in CentOS/RedHat, Suse and Ubuntu 12.04
- * Make it Multi-Server, to install in each server only the rol that selects (LDAP, Mailbox, MTA, PROXY, UI)
+## ToDo
+- [ ] Prepare and configure automatically the Reverse DNS Zone
+- [ ] Make it multi-platform to use it in CentOS/RedHat, Suse and Ubuntu 12.04
+- [ ] Make it Multi-Server, to install in each server only the rol that selects (LDAP, Mailbox, MTA, PROXY, UI)
+- [ ] Have the option to select Bind, dnsmasq, or external DNS
+- [ ] Have the option to select the Timezone, the default one is Los Angeles
