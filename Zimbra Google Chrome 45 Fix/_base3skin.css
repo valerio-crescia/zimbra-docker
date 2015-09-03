@@ -169,7 +169,7 @@ BODY						{	margin:0px; 	}
 #skin_container_top_ad					{	@AdStyle@ height:@TopAdHeight@;		}
 /** Sidebar ad **/
 #skin_spacing_sidebar_ad				{	padding:10px 0px 0px 5px;			}
-#skin_container_sidebar_ad				{	display: none; 	}
+#skin_container_sidebar_ad				{       @AdStyle@ width:@SidebarAdWidth@;       }
 
 /** Tree Top Ad **/
 #skin_spacing_tree_top_ad				{}
@@ -185,8 +185,11 @@ BODY						{	margin:0px; 	}
 /*** HACKS: this makes the tables work properly -- rationalize this!  **/
 #skin_td_tree							{	width:@TreeStartWidth@;		}
 #skin_td_tree_app_sash 					{	width:@SashSize@;			}
-#skin_td_main							{	width:auto;	height:100%; 	}
-#skin_td_sidebar_ad						{	display: table-cell; width:1px;		}
+/** #skin_td_main							{	width:auto;	height:100%; 	}*/
+#skin_td_main > TABLE {
+  table-layout: fixed;
+}
+#skin_td_sidebar_ad						{       width:@SidebarAdWidth@;    }
 /*#skin_td_new_button					{	padding:2px; 	}*/
 
 /** LoginPanel and Splash screen **/
