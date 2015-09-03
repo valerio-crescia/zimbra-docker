@@ -25,7 +25,7 @@ chown zimbra:zimbra /opt/zimbra/jetty/webapps/zimbra/skins/_base/base2/skin.css
 chown zimbra:zimbra /opt/zimbra/jetty/webapps/zimbra/skins/_base/base3/skin.css
 
 ## Restart the Mailbox Service
-read -p "To finish the installation you need to restart the mailboxd process. This will cause a service disruption. Are you sure you want to continue? " -n 1 -r
+read -p "To finish the installation you need to restart the mailboxd process. This will cause a service disruption. Are you sure you want to continue? Press Y/y or N/n " -n 1 -r
 echo    # (optional) move to a new line
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
