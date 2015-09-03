@@ -5,6 +5,10 @@
 
 ## Moving and operating from /tmp
 cd /tmp
+
+##Coming from another upgrade try? Then cleaning the files here, just in case:
+rm _base2skin.css
+rm _base3skin.css
 ## Making a Backup of the original Files
 echo "Making a Backup of the original Files"
 mv /opt/zimbra/jetty/webapps/zimbra/skins/_base/base2/skin.css /opt/zimbra/jetty/webapps/zimbra/skins/_base/base2/skin.css.old
