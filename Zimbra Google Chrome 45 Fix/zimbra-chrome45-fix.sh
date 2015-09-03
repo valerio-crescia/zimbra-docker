@@ -12,8 +12,7 @@ mv /opt/zimbra/jetty/webapps/zimbra/skins/_base/base3/skin.css /opt/zimbra/jetty
 
 ## Downloading the fixed Files from GitHub
 echo "Downloading the fixed Files from GitHub"
-wget https://raw.githubusercontent.com/jorgedlcruz/Zimbra/master/Zimbra%20Google%20Chrome%2045%20Fix/_base2skin.css
-wget https://raw.githubusercontent.com/jorgedlcruz/Zimbra/master/Zimbra%20Google%20Chrome%2045%20Fix/_base3skin.css
+wget https://raw.githubusercontent.com/jorgedlcruz/Zimbra/master/Zimbra%20Google%20Chrome%2045%20Fix/_base2skin.css https://raw.githubusercontent.com/jorgedlcruz/Zimbra/master/Zimbra%20Google%20Chrome%2045%20Fix/_base3skin.css
 
 ## Move the downloaded Files into the proper folder
 echo "Move the downloaded Files into the proper folder"
@@ -26,7 +25,13 @@ chown zimbra:zimbra /opt/zimbra/jetty/webapps/zimbra/skins/_base/base2/skin.css
 chown zimbra:zimbra /opt/zimbra/jetty/webapps/zimbra/skins/_base/base3/skin.css
 
 ## Restart the Mailbox Service
-echo "Restart the Mailbox Service"
-su - zimbra -c 'zmmailboxdctl restart'
-
+read -p "To finish the installation you need to restart the mailboxd process. This will cause a service disruption. Are you sure you want to continue? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    exit 1
+else
+   echo "Restart the Mailbox Service"
+   su - zimbra -c 'zmmailboxdctl restart'
+fi
 echo "Now, all the users must do logout and login, and everything should work"
