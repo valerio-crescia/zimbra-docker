@@ -18,9 +18,16 @@ wget https://raw.githubusercontent.com/jorgedlcruz/Zimbra/master/docker/Dockerfi
 wget https://raw.githubusercontent.com/jorgedlcruz/Zimbra/master/docker/start.sh
 ```
 ##Build the image using the Dockerfile
-Just run the next command to build the image based in the previous Dockerfile, you can use the name that you want, in this case is zimbra_docker:
+The `Makefile` in the docker/ directory provides you with a convenient way to build your docker image. Just `cd docker/` and run
+
 ```bash
-sudo docker build -t zimbra_docker .
+sudo make
+```
+
+The default image name is zimbra_docker. You can specify a different image name by setting the `Image` variable:
+
+```bash
+sudo IMAGE=your_image_name make
 ```
 ##Deploy the Docker container
 Now, to deploy the container based on the previous image. As well as publish the Zimbra Collaboration ports, the hostname and the proper DNS, as you want to use bind as a local DNS nameserver within the container, also we will send the password that we want to our Zimbra Server like admin password, mailbox, LDAP, etc.: Syntax:
