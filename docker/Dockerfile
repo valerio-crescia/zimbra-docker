@@ -7,9 +7,10 @@ FROM ubuntu:14.04
 MAINTAINER Jorge de la Cruz <jorgedlcruz@gmail.com>
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install \
-  wget \
-  netcat-openbsd \
-  sudo \
+  bind9 \
+  bind9utils \
+  bind9-doc \
+  dnsutils
   libidn11 \
   libpcre3 \
   libgmp10 \
@@ -17,15 +18,13 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install \
   libstdc++6 \
   libperl5.18 \
   libaio1 \
-  resolvconf \
-  unzip \
+  netcat-openbsd \
   pax \
-  sysstat \
+  resolvconf \
   sqlite3 \
-  bind9 \
-  bind9utils \
-  bind9-doc \
-  dnsutils
+  sudo \
+  sysstat \
+  unzip
 
 VOLUME ["/opt/zimbra"]
 
