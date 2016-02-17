@@ -6,26 +6,33 @@
 FROM ubuntu:14.04
 MAINTAINER Jorge de la Cruz <jorgedlcruz@gmail.com>
 
-## Install wget ##
-RUN sudo apt-get update && sudo apt-get install -y wget
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install \
+  wget \
+  netcat-openbsd \
+  sudo \
+  libidn11 \
+  libpcre3 \
+  libgmp10 \
+  libexpat1 \
+  libstdc++6 \
+  libperl5.18 \
+  libaio1 \
+  resolvconf \
+  unzip \
+  pax \
+  sysstat \
+  sqlite3 \
+  bind9 \
+  bind9utils \
+  bind9-doc \
+  dnsutils
 
 VOLUME ["/opt/zimbra"]
 
-EXPOSE 22
-EXPOSE 25
-EXPOSE 456
-EXPOSE 587
-EXPOSE 110
-EXPOSE 143
-EXPOSE 993
-EXPOSE 995
-EXPOSE 80
-EXPOSE 443
-EXPOSE 8080
-EXPOSE 8443
-EXPOSE 7071
+EXPOSE 22 25 456 587 110 143 993 995 80 443 8080 8443 7071
 
-RUN mkdir /tmp/zcs
-ADD start.sh /tmp/zcs/start.sh
+COPY opt /opt/
 
-CMD ["/bin/bash", "/tmp/zcs/start.sh"]
+COPY etc /etc/
+
+CMD ["/bin/bash", "/opt/start.sh"]
