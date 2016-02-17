@@ -7,20 +7,27 @@ In this Repository you will find different Zimbra Scripts.
 
 Depend of your OS, you need to install Docker in different ways, take a look into the official Website - https://docs.docker.com/installation/#installation
 
-One of the advantages of using docker is that the host OS does not matter, the containers will work on any platform. 
+One of the advantages of using docker is that the host OS does not matter, the containers will work on any platform.
 ##Creating the Zimbra Image
 
 The content of the Dockerfile and the start.sh is based on the next Script - ZimbraEasyInstall. The Dockerfile creates a Ubuntu Server 14.04 image and install on it wget, then when the container is launched, automatically starts with the start.sh script:
 ###Dockerfile & start.sh
-Download from github 
+Download from github
 ```bash
 wget https://raw.githubusercontent.com/jorgedlcruz/Zimbra/master/docker/Dockerfile
 wget https://raw.githubusercontent.com/jorgedlcruz/Zimbra/master/docker/start.sh
 ```
 ##Build the image using the Dockerfile
-Just run the next command to build the image based in the previous Dockerfile, you can use the name that you want, in this case is zimbra_docker:
+The `Makefile` in the docker/ directory provides you with a convenient way to build your docker image. Just `cd docker/` and run
+
 ```bash
-sudo docker build -t zimbra_docker .
+sudo make
+```
+
+The default image name is zimbra_docker. You can specify a different image name by setting the `Image` variable:
+
+```bash
+sudo IMAGE=your_image_name make
 ```
 ##Deploy the Docker container
 Now, to deploy the container based on the previous image. As well as publish the Zimbra Collaboration ports, the hostname and the proper DNS, as you want to use bind as a local DNS nameserver within the container, also we will send the password that we want to our Zimbra Server like admin password, mailbox, LDAP, etc.: Syntax:
@@ -38,9 +45,9 @@ This will create the container in few seconds, and run automatically the start.s
 * Install the OS dependencies for Zimbra Collaboration 8.6
 * Create 2 files to automate the Zimbra Collaboration installation, the keystrokes and the config.defaults.
 * Launch the installation of Zimbra based only in the .install.sh -s
-* Inject the config.defaults file with all the parameters that is autoconfigured with the Hostname, domain, IP, and password that you define before. 
+* Inject the config.defaults file with all the parameters that is autoconfigured with the Hostname, domain, IP, and password that you define before.
 
-The script takes a few minutes, dependent on the your Internet Speed, and resources. 
+The script takes a few minutes, dependent on the your Internet Speed, and resources.
 
 # ZimbraEasyInstall
 ##What is the ZimbraEasyInstall
@@ -49,22 +56,21 @@ This Script install and configures bind9 with the domain and IP that is defined 
 ##Advantages of use the Script
  * Time saving
  * Fully automated
- * Easy to use 
+ * Easy to use
  * Good for a quick Zimbra Preview
 
 ##Usage and Example
 The ZimbraEasyInstall Script is an easy way to install Zimbra Collaboration, without be worry of the DNS configuration, OS depencies, etc. Just execute it and after a few minutes have Zimbra up and running.
 
-Just run the Script adding the TLD domain for your Zimbra Collaboration server, the IP of the DNS server (usually will be the same of the server, but instead you are using different eth interfaces), and add the password for the Zimbra Collaboration server. 
+Just run the Script adding the TLD domain for your Zimbra Collaboration server, the IP of the DNS server (usually will be the same of the server, but instead you are using different eth interfaces), and add the password for the Zimbra Collaboration server.
 ```bash
 root@zimbramail:/home/oper# ./ZimbraEasyInstall zimbralab.local 192.168.211.40 Zimbra2015
- 
 ```
 ##Access to the Web Client and Admin Console
 The Script will take care of everything and after a few minutes you can go to the IP of your server and use the next URL:
  * Web Client - https://YOURIP
  * Admin Console - https://YOURIP:7071
- 
+
 ## ToDo
 - [ ] Prepare and configure automatically the Reverse DNS Zone
 - [ ] Make it multi-platform to use it in CentOS/RedHat, Suse and Ubuntu 12.04
