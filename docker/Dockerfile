@@ -10,7 +10,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install \
   bind9 \
   bind9utils \
   bind9-doc \
-  dnsutils
+  dnsutils \
   libidn11 \
   libpcre3 \
   libgmp10 \
