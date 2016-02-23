@@ -1,5 +1,6 @@
 #!/bin/bash
-## Script created by Jorge de la Cruz
+## Script created for the Zimbra Community
+## Licensed under GPLv2
 ## This Script doesn't have any kind of Support
 ## Use it under your own responsibility
 
