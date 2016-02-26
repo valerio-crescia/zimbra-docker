@@ -28,7 +28,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install \
 
 VOLUME ["/opt/zimbra"]
 
-EXPOSE 22 25 456 587 110 143 993 995 80 443 8080 8443 7071
+EXPOSE 22 25 465 587 110 143 993 995 80 443 8080 8443 7071
 
 COPY opt /opt/
 
