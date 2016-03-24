@@ -15,18 +15,20 @@ The content of the Dockerfile and the start.sh is based on the next Script - Zim
 Download from github
 ```bash
 wget https://raw.githubusercontent.com/Zimbra-Community/zimbra-docker/master/docker/Dockerfile
-wget https://raw.githubusercontent.com/Zimbra-Community/zimbra-docker/master/docker/start.sh
+wget https://raw.githubusercontent.com/Zimbra-Community/zimbra-docker/master/docker/opt/start.sh
 ```
 ##Build the image using the Dockerfile
-The `Makefile` in the docker/ directory provides you with a convenient way to build your docker image. Just `cd docker/` and run
+The `Makefile` in the docker/ directory provides you with a convenient way to build your docker image. Just run
 
 ```bash
+cd docker
 sudo make
 ```
 
 The default image name is zimbra_docker. You can specify a different image name by setting the `Image` variable:
 
 ```bash
+cd docker
 sudo IMAGE=your_image_name make
 ```
 ##Deploy the Docker container
