@@ -7,6 +7,7 @@ FROM ubuntu:14.04
 MAINTAINER Jorge de la Cruz <jorgedlcruz@gmail.com>
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install \
+  wget \
   bind9 \
   bind9utils \
   bind9-doc \
