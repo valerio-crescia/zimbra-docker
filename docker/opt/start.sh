@@ -13,6 +13,19 @@ echo "Configuring DNS Server"
 sed "s/-u/-4 -u/g" /etc/default/bind9 > /etc/default/bind9.new
 mv /etc/default/bind9.new /etc/default/bind9
 rm /etc/bind/named.conf.options
+cat <<EOF >>/etc/bind/named.conf.options
+options {
+directory "/var/cache/bind";
+listen-on { $CONTAINERIP; }; # ns1 private IP address - listen on private network only
+allow-transfer { none; }; # disable zone transfers by default
+forwarders {
+8.8.8.8;
+8.8.4.4;
+};
+auth-nxdomain no; # conform to RFC1035
+#listen-on-v6 { any; };
+};
+EOF
 mv /etc/bind/db.domain /etc/bind/db.$DOMAIN
 
 sed -i 's/\$DOMAIN/'$DOMAIN'/g' \
