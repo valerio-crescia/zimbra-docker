@@ -10,25 +10,32 @@ Depend of your OS, you need to install Docker in different ways, take a look int
 One of the advantages of using docker is that the host OS does not matter, the containers will work on any platform.
 ##Creating the Zimbra Image
 
-The content of the Dockerfile and the start.sh is based on the next Script - ZimbraEasyInstall. The Dockerfile creates a Ubuntu Server 14.04 image and install on it wget, then when the container is launched, automatically starts with the start.sh script:
-###Dockerfile & start.sh
-Download from github
-```bash
-wget https://raw.githubusercontent.com/Zimbra-Community/zimbra-docker/master/docker/Dockerfile
-wget https://raw.githubusercontent.com/Zimbra-Community/zimbra-docker/master/docker/opt/start.sh
-```
-##Build the image using the Dockerfile
-The `Makefile` in the docker/ directory provides you with a convenient way to build your docker image. Just run
+The content of the Dockerfile and the start.sh is based on the next Script - ZimbraEasyInstall. The Dockerfile creates a Ubuntu Server 14.04 image and install on it all the OS dependencies which Zimbra needs, then when the container is launched, automatically starts with the start.sh script which creates an autoconfig file which is injected during the zimbra Installation:
+###Using git
+Download from github, you will need git installed on your OS
 
 ```bash
-cd docker
+git clone https://github.com/Zimbra-Community/zimbra-docker.git
+```
+####Using wget
+For those who want to use wget, follow the next instructions to download the Zimbra-docker package. You might need wget and unzip installed on your OS
+```bash
+wget https://github.com/Zimbra-Community/zimbra-docker/archive/master.zip
+unzip master.zip
+```
+
+##Build the image using the Dockerfile
+The `Makefile` in the docker/ directory provides you with a convenient way to build your docker image. You will need make on your OS. Just run
+
+```bash
+cd zimbra-docker/docker
 sudo make
 ```
 
 The default image name is zimbra_docker. You can specify a different image name by setting the `Image` variable:
 
 ```bash
-cd docker
+cd zimbra-docker/docker
 sudo IMAGE=your_image_name make
 ```
 ##Deploy the Docker container
