@@ -57,6 +57,16 @@ This will create the container in few seconds, and run automatically the start.s
 * Inject the config.defaults file with all the parameters that is autoconfigured with the Hostname, domain, IP, and password that you define before.
 
 The script takes a few minutes, dependent on the your Internet Speed, and resources.
+##Known issues##
+After the Zimbra automated installation, the docker container will exit and keep in stopped state, you just need to run the next commands to start your Zimbra Container:
+
+```bash
+docker ps -a 
+docker start YOURCONTAINERID
+docker exec -it YOURCONTAINERID bash
+su - zimbra
+zmcontrol restart
+```
 
 # ZimbraEasyInstall
 ##What is the ZimbraEasyInstall
