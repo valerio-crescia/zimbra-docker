@@ -35,4 +35,4 @@ COPY opt /opt/
 
 COPY etc /etc/
 
-CMD ["/bin/bash", "/opt/start.sh"]
+CMD ["/bin/bash", "/opt/start.sh", "-d"]
