@@ -1,6 +1,9 @@
 # Zimbra
 In this Repository you will find different Zimbra Scripts.
 
+## Please note that an alternative Zimbra Docker is available from  ZeXtras
+[https://hub.docker.com/r/zextras/zimbra8/](https://hub.docker.com/r/zextras/zimbra8/)
+
 # Docker
 ## Install Docker
 * Keep posted of the changes in the next Zimbra Wiki - https://wiki.zimbra.com/wiki/Deploy_Zimbra_Collaboration_using_docker
