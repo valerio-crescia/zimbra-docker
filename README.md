@@ -1,9 +1,6 @@
 # Zimbra
 In this Repository you will find different Zimbra Scripts.
 
-## Please note that an alternative Zimbra Docker is available from  ZeXtras
-[https://hub.docker.com/r/zextras/zimbra8/](https://hub.docker.com/r/zextras/zimbra8/)
-
 # Docker
 ## Install Docker
 * Keep posted of the changes in the next Zimbra Wiki - https://wiki.zimbra.com/wiki/Deploy_Zimbra_Collaboration_using_docker
@@ -99,3 +96,6 @@ The Script will take care of everything and after a few minutes you can go to th
 - [ ] Make it Multi-Server, to install in each server only the rol that selects (LDAP, Mailbox, MTA, PROXY, UI)
 - [ ] Have the option to select Bind, dnsmasq, or external DNS
 - [ ] Have the option to select the Timezone, the default one is Los Angeles
+
+## Please note that an alternative Zimbra Docker is available from  ZeXtras
+[https://hub.docker.com/r/zextras/zimbra8/](https://hub.docker.com/r/zextras/zimbra8/)
