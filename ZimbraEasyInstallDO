@@ -3,6 +3,7 @@
 RANDOMHAM=$(date +%s|sha256sum|base64|head -c 10)
 RANDOMSPAM=$(date +%s|sha256sum|base64|head -c 10)
 RANDOMVIRUS=$(date +%s|sha256sum|base64|head -c 10)
+HOSTNAME=$(hostname -s)
 
 #Install a DNS Server and Zimbra Collaboration 8.6
 echo "Installing DNS Server"
@@ -45,8 +46,8 @@ cat <<EOF >/etc/bind/db.$1
 ;
 @     IN      NS      ns1.$1.
 @     IN      A      $2
-@     IN      MX     10     $4.$1.
-$4     IN      A      $2
+@     IN      MX     10     $HOSTNAME.$1.
+$HOSTNAME     IN      A      $2
 ns1     IN      A      $2
 mail     IN      A      $2
 pop3     IN      A      $2
@@ -70,7 +71,7 @@ DOCREATEADMIN="yes"
 DOCREATEDOMAIN="yes"
 DOTRAINSA="yes"
 EXPANDMENU="no"
-HOSTNAME="$4.$1"
+HOSTNAME="$HOSTNAME.$1"
 HTTPPORT="8080"
 HTTPPROXY="TRUE"
 HTTPPROXYPORT="80"
@@ -88,7 +89,7 @@ LDAPROOTPASS="$3"
 LDAPADMINPASS="$3"
 LDAPREPPASS="$3"
 LDAPBESSEARCHSET="set"
-LDAPHOST="$4.$1"
+LDAPHOST="$HOSTNAME.$1"
 LDAPPORT="389"
 LDAPREPLICATIONTYPE="master"
 LDAPSERVERID="2"
@@ -110,12 +111,12 @@ RUNSA="yes"
 RUNVMHA="no"
 SERVICEWEBAPP="yes"
 SMTPDEST="admin@$1"
-SMTPHOST="$4.$1"
+SMTPHOST="$HOSTNAME.$1"
 SMTPNOTIFY="yes"
 SMTPSOURCE="admin@$1"
 SNMPNOTIFY="yes"
-SNMPTRAPHOST="$4.$1"
-SPELLURL="http://$4.$1:7780/aspell.php"
+SNMPTRAPHOST="$HOSTNAME.$1"
+SPELLURL="http://$HOSTNAME.$1:7780/aspell.php"
 STARTSERVERS="yes"
 SYSTEMMEMORY="3.8"
 TRAINSAHAM="ham.$RANDOMHAM@$1"
