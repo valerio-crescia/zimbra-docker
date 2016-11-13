@@ -57,7 +57,7 @@ cat <<EOF >/etc/bind/db.$1
 EOF
 sudo service bind9 restart
 else
-echo "Installing bind DNS Server"
+echo "Installing dnsmasq DNS Server"
 sudo apt-get update && sudo sudo apt-get install -y dnsmasq
 echo "Configuring DNS Server"
 mv /etc/dnsmasq.conf /etc/dnsmasq.conf.old
