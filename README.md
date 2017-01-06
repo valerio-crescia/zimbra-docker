@@ -15,12 +15,12 @@ The content of the Dockerfile and the start.sh is based on the next Script - Zim
 Download from github, you will need git installed on your OS
 
 ```bash
-git clone https://github.com/Zimbra-Community/zimbra-docker.git
+git clone https://github.com/jorgedlcruz/zimbra-docker.git
 ```
 ####Using wget
 For those who want to use wget, follow the next instructions to download the Zimbra-docker package. You might need wget and unzip installed on your OS
 ```bash
-wget https://github.com/Zimbra-Community/zimbra-docker/archive/master.zip
+wget https://github.com/jorgedlcruz/zimbra-docker/archive/master.zip
 unzip master.zip
 ```
 
