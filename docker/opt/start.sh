@@ -10,33 +10,15 @@ RANDOMVIRUS=$(date +%s|sha256sum|base64|head -c 10)
 
 ## Installing the DNS Server ##
 echo "Configuring DNS Server"
-sed "s/-u/-4 -u/g" /etc/default/bind9 > /etc/default/bind9.new
-mv /etc/default/bind9.new /etc/default/bind9
-rm /etc/bind/named.conf.options
-cat <<EOF >>/etc/bind/named.conf.options
-options {
-directory "/var/cache/bind";
-listen-on { $CONTAINERIP; }; # ns1 private IP address - listen on private network only
-allow-transfer { none; }; # disable zone transfers by default
-forwarders {
-8.8.8.8;
-8.8.4.4;
-};
-auth-nxdomain no; # conform to RFC1035
-#listen-on-v6 { any; };
-};
+mv /etc/dnsmasq.conf /etc/dnsmasq.conf.old
+cat <<EOF >>/etc/dnsmasq.conf
+server=8.8.8.8
+listen-address=127.0.0.1
+domain=$DOMAIN
+mx-host=$DOMAIN,$HOSTNAME.$DOMAIN,0
+address=/$HOSTNAME.$DOMAIN/$CONTAINERIP
 EOF
-mv /etc/bind/db.domain /etc/bind/db.$DOMAIN
-
-sed -i 's/\$DOMAIN/'$DOMAIN'/g' \
-  /etc/bind/db.$DOMAIN \
-  /etc/bind/named.conf.local
-
-sed -i 's/\$HOSTNAME/'$HOSTNAME'/g' /etc/bind/db.$DOMAIN
-
-sed -i 's/\$CONTAINERIP/'$CONTAINERIP'/g' /etc/bind/db.$DOMAIN
-
-sudo service bind9 restart
+sudo service dnsmasq restart
 
 ##Creating the Zimbra Collaboration Config File ##
 touch /opt/zimbra-install/installZimbraScript
