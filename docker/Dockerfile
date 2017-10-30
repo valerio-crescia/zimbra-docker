@@ -17,6 +17,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install \
   dnsutils \
   net-tools \
   sudo \
+  rsyslog \
   unzip
 
 VOLUME ["/opt/zimbra"]
