@@ -17,6 +17,7 @@ listen-address=127.0.0.1
 domain=$DOMAIN
 mx-host=$DOMAIN,$HOSTNAME.$DOMAIN,0
 address=/$HOSTNAME.$DOMAIN/$CONTAINERIP
+user=root
 EOF
 sudo service dnsmasq restart
 
