@@ -6,7 +6,7 @@ In this Repository you will find how to install Zimbra on Docker
 
 # Docker
 ## How to install Docker
-* Keep posted of the changes in the next Zimbra Wiki - https://wiki.zimbra.com/wiki/Deploy_Zimbra_Collaboration_using_docker
+Keep posted of the changes in the next Zimbra Wiki - https://wiki.zimbra.com/wiki/Deploy_Zimbra_Collaboration_using_docker
 
 Depend of your OS, you need to install Docker in different ways, take a look into the official Website - https://docs.docker.com/engine/installation/
 
