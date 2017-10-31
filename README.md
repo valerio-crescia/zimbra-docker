@@ -26,11 +26,11 @@ That's it! You can visit now the IP of your Docker Machine using HTTPS, or try t
 
 ## Contribute to the Project
 If you like to contribute to the project, you are free to do so, just fork this repo and submit your changes.
- 
-<details>
-  <summary>Manual process</summary>
 
 # Manual process - not really recommended
+
+<details>
+  <summary>Manual process</summary>
 
 ## Creating the Zimbra Image
 
