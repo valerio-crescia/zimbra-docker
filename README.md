@@ -29,7 +29,9 @@ If you like to contribute to the project, you are free to do so, just fork this 
  
 <details>
   <summary>Manual process</summary>
-  # Manual process - not really recommended
+
+# Manual process - not really recommended
+
 ## Creating the Zimbra Image
 
 The content of the Dockerfile and the start.sh is based on the next Script - ZimbraEasyInstall. The Dockerfile creates a Ubuntu Server 16.04 image and install on it all the OS dependencies which Zimbra needs, then when the container is launched, automatically starts with the start.sh script which creates an autoconfig file which is injected during the zimbra Installation.
