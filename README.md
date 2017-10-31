@@ -80,7 +80,9 @@ This will create the container in few seconds, and run automatically the start.s
 The script takes a few minutes, dependent on the your Internet Speed, and resources.
 
 </details>
+
 ## Known issues
+
 After the Zimbra automated installation, if you close or quit the bash console from the container, the docker container might exit and keep in stopped state, you just need to run the next commands to start your Zimbra Container:
 
 ```bash
