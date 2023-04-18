@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  zimbra:
+    build: .
+    image: zimbra:latest
+    hostname: mail.valerio.net
+    container_name: zimbra
+    ports:
+      - "25:25"  # for incoming mail
+      - "80:80"   # http
+      - "465:465"   # For incoming mail in TLS
+      - "587:587"   # mail submission over TLS
+      - "110:110"   # POP3
+      - "143:143"   # IMAP
+      - "993:993"   # IMAPS 
+      - "995:995"   # POP3s
+      - "443:443"   # https
+      - "8080:8080" # backend http
+      - "8443:8443"   # backend https
+      - "7071:7071"   # admin console https
+      - "9071:9071"   # proxy admin console
+
+    dns:
+      - 127.0.0.1
+      - 8.8.8.8
+    environment:
+      - PASSWORD=Zimbra2023
